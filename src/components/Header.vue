@@ -16,11 +16,23 @@
     </label>
 
     <label for="attack">
+      Attack:
       <input 
         type="number"
         v-model.number="filter.attack"
+        step="10"
       >
     </label>
+
+    <label for="defense">
+      Defense:
+      <input 
+        type="number"
+        v-model.number="filter.defense"
+        step="10"
+      >
+    </label>
+
   </header>  
 </template>
 
