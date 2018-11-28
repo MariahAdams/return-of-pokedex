@@ -1,6 +1,7 @@
 <template>
   <header>
-    <label>
+
+    <label for="type">
       Type:
       <select v-model="filter.type" name="filter" id="filter" >
         <option value="">All</option>
@@ -12,6 +13,13 @@
         {{ type }}
         </option>
       </select>
+    </label>
+
+    <label for="attack">
+      <input 
+        type="number"
+        v-model.number="filter.attack"
+      >
     </label>
   </header>  
 </template>
@@ -27,6 +35,6 @@ export default {
 
 <style>
 select {
-  width: 15%;
+  width: 10%;
 }
 </style>

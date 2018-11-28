@@ -20,7 +20,8 @@ export default {
     return {
       pokedex: pokedexApi.getAll(),
       filter: {
-        type: ''
+        type: '',
+        attack: 0
       }
     };
   },
@@ -41,7 +42,8 @@ export default {
     filteredPokemon() {
       return this.pokedex.filter(pokemon => {
         const hasType = !this.filter.type || pokemon.type_1 === this.filter.type;
-        return hasType;
+        const hasAttack = !this.filter.attack || pokemon.attack >= this.filter.attack;
+        return hasType && hasAttack;
       });
     }
   }
