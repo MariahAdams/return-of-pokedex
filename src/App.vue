@@ -1,12 +1,14 @@
 <template>
   <div id="app">
     <h1>Gotta Catch 'Em All...Again</h1>
+    <Header />
     <Pokedex v-bind:pokedex="pokedex"/>
   </div>
 </template>
 
 <script>
 import Pokedex from './components/Pokedex';
+import Header from './components/Header';
 import pokedexApi from './services/pokedexApi';
 
 export default {
@@ -17,7 +19,8 @@ export default {
     };
   },
   components: {
-    Pokedex
+    Pokedex,
+    Header
   }
 };
 </script>
