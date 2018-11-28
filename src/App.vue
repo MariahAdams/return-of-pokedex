@@ -1,14 +1,17 @@
 <template>
   <div id="app">
     Hello World
+    <Pokedex />
   </div>
 </template>
 
 <script>
+import Pokedex from './components/Pokedex';
 
 export default {
   name: 'app',
   components: {
+    Pokedex
   }
 };
 </script>
