@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    Hello World
+    <h1>Gotta Catch 'Em All...Again</h1>
     <Pokedex />
   </div>
 </template>
