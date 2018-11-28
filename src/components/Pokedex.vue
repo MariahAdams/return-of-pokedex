@@ -1,15 +1,21 @@
 <template>
   <ul>
-    Pokedex:
+    <Pokemon />
   </ul>
 </template>
 
 <script>
-export default {
+import Pokemon from './Pokemon';
 
+export default {
+  components: {
+    Pokemon
+  }
 };
 </script>
 
 <style>
-
+ul {
+  list-style: none;
+}
 </style>
