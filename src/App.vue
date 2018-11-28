@@ -1,8 +1,11 @@
 <template>
   <div id="app">
     <h1>Gotta Catch 'Em All...Again</h1>
-    <Header />
-    <Pokedex v-bind:pokedex="pokedex"/>
+    <Header 
+      v-bind:filter="filter"
+      v-bind:types="pokeTypes"
+    />
+    <Pokedex v-bind:pokedex="filteredPokemon"/>
   </div>
 </template>
 
@@ -15,12 +18,32 @@ export default {
   name: 'app',
   data() {
     return {
-      pokedex: pokedexApi.getAll()
+      pokedex: pokedexApi.getAll(),
+      filter: {
+        type: ''
+      }
     };
   },
   components: {
     Pokedex,
     Header
+  },
+  computed: {
+    pokeTypes() {
+      const types = [];
+      this.pokedex.forEach(pokemon => {
+        if(!types.includes(pokemon.type_1)) {
+          types.push(pokemon.type_1);
+        }
+      });
+      return types;
+    },
+    filteredPokemon() {
+      return this.pokedex.filter(pokemon => {
+        const hasType = !this.filter.type || pokemon.type_1 === this.filter.type;
+        return hasType;
+      });
+    }
   }
 };
 </script>

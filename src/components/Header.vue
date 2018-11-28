@@ -2,9 +2,15 @@
   <header>
     <label>
       Type:
-      <select name="" id="">
+      <select v-model="filter.type" name="filter" id="filter" >
         <option value="">All</option>
-        <option></option>
+        <option 
+          v-for="type in types" 
+          v-bind:key="type"
+          v-bind:value="type"
+        >
+        {{ type }}
+        </option>
       </select>
     </label>
   </header>  
@@ -12,7 +18,10 @@
 
 <script>
 export default {
-
+  props: {
+    filter: Object,
+    types: Array
+  }
 };
 </script>
 
