@@ -1,15 +1,21 @@
 <template>
   <div id="app">
     <h1>Gotta Catch 'Em All...Again</h1>
-    <Pokedex />
+    <Pokedex v-bind:pokedex="pokedex"/>
   </div>
 </template>
 
 <script>
 import Pokedex from './components/Pokedex';
+import pokedexApi from './services/pokedexApi';
 
 export default {
   name: 'app',
+  data() {
+    return {
+      pokedex: pokedexApi.getAll()
+    };
+  },
   components: {
     Pokedex
   }
