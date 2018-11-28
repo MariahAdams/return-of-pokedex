@@ -3,9 +3,10 @@
     <h1>Gotta Catch 'Em All...Again</h1>
     <Header 
       v-bind:filter="filter"
+      v-bind:sort="sort"
       v-bind:types="pokeTypes"
     />
-    <Pokedex v-bind:pokedex="filteredPokemon"/>
+    <Pokedex v-bind:pokedex="sortedPokemon"/>
   </div>
 </template>
 
@@ -23,6 +24,10 @@ export default {
         type: '',
         attack: 0,
         defense: 0
+      },
+      sort: {
+        field: 'name',
+        direction: 1
       }
     };
   },
@@ -46,6 +51,20 @@ export default {
         const hasAttack = !this.filter.attack || pokemon.attack >= this.filter.attack;
         const hasDefense = !this.filter.defense || pokemon.defense >= this.filter.defense;
         return hasType && hasAttack && hasDefense;
+      });
+    },
+    sortedPokemon() {
+      const field = this.sort.field;
+      const direction = this.sort.direction;
+
+      return this.filteredPokemon.slice().sort((a, b) => {
+        if(a[field] > b[field]) {
+          return 1 * direction;
+        }
+        if(a[field] < b[field]) {
+          return -1 * direction;
+        }
+        return 0;
       });
     }
   }

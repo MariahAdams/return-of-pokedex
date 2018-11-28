@@ -1,6 +1,6 @@
 <template>
   <header>
-
+    <!-- Filter Component -->
     <label for="type">
       Type:
       <select v-model="filter.type" name="filter" id="filter" >
@@ -33,6 +33,19 @@
       >
     </label>
 
+    <!-- Sort Component -->
+    <label for="name">
+      Sort By:
+      <select v-model="sort.field">
+        <option value="type">Type</option>
+        <option value="attack">Attack</option>
+        <option value="defense">Defense</option>
+      </select>
+      <select v-model="sort.direction">
+        <option value="1">Asc</option>
+        <option value="-1">Desc</option>
+      </select>
+    </label>
   </header>  
 </template>
 
@@ -40,7 +53,8 @@
 export default {
   props: {
     filter: Object,
-    types: Array
+    types: Array,
+    sort: Object
   }
 };
 </script>
