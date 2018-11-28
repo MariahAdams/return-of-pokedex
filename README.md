@@ -32,3 +32,5 @@ npm run lint
 See [Configuration Reference](https://cli.vuejs.org/config/).
 
 
+## Acknowledgment 
+Based on [alchemy-bootcamp-two-fall-2018/return-of-pokedex](https://github.com/alchemy-bootcamp-two-fall-2018/return-of-pokedex)
